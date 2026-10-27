@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>作业分类与任务分发系统</title>
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+  <!-- ============ 登录 / 注册 ============ -->
+  <div id="auth-view">
+    <div class="auth-card">
+      <div class="auth-logo">📚</div>
+      <h1 id="auth-title">作业分类与任务分发系统</h1>
+      <p class="auth-sub">上传 → AI 自动分类 → 按类别分发任务</p>
+
+      <div class="auth-tabs">
+        <button id="tab-login" class="tab active" type="button">登录</button>
+        <button id="tab-register" class="tab" type="button">注册</button>
+      </div>
+
+      <form id="login-form" class="auth-form" autocomplete="off">
+        <input id="login-username" type="text" placeholder="账号" required>
+        <input id="login-password" type="password" placeholder="密码" required>
+        <button class="btn btn-primary btn-block" type="submit">登录</button>
+      </form>
+
+      <form id="register-form" class="auth-form hidden" autocomplete="off">
+        <input id="reg-username" type="text" placeholder="账号（登录用，可中文）" required>
+        <input id="reg-name" type="text" placeholder="姓名（选填，默认用账号）">
+        <input id="reg-password" type="password" placeholder="密码（至少 6 位）" minlength="6" required>
+        <div class="role-row">
+          <span class="role-label">身份</span>
+          <label><input type="radio" name="reg-role" value="student" checked> 学生</label>
+          <label><input type="radio" name="reg-role" value="teacher"> 老师</label>
+        </div>
+        <input id="reg-code" type="text" placeholder="老师注册码（选填）">
+        <button class="btn btn-primary btn-block" type="submit">注册并进入</button>
+      </form>
+
+      <div id="auth-msg" class="msg hidden"></div>
+      <div id="mode-hint" class="mode-hint hidden"></div>
+    </div>
+  </div>
+
+  <!-- ============ 主界面 ============ -->
+  <div id="main-view" class="hidden">
+    <header class="topbar">
+      <div class="brand">📚 作业分类与任务分发系统</div>
+      <div class="topbar-right">
+        <span id="user-badge" class="badge"></span>
+        <button id="btn-logout" class="btn btn-ghost" type="button">退出登录</button>
+      </div>
+    </header>
+    <div id="app-content" class="app-content"></div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="js/config.js?v=3"></script>
+  <script src="js/backend.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>
